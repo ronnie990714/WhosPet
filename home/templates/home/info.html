@@ -1,0 +1,201 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>동물 관련 정보</title>
+    <link rel="stylesheet" href="{% static 'css/animal_info.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <script defer src="{% static 'javascript/animal_info.js' %}"></script>
+</head>
+
+<body>
+    <!-- 상단 바 -->
+    <section class="nav_top">
+        <nav class="navbar">
+            <div class="navbar_logo">
+                <i class="fas fa-paw"></i>
+                <a href="/">Who's Pet</a>
+            </div>
+
+            <ul class="navbar_menu">
+                <li><a href="">마이페이지</a></li>
+                <li><a href="{% url 'info' %}">정보</a></li>
+                <li><a href="{% url 'facility' %}">반려견시설</a></li>
+                <li><a href="{% url 'gps' %}">위치추적</a></li>
+                <li><a href="{% url 'board:board_list' %}">커뮤니티</a></li>
+            </ul>
+
+            <ul class="navbar_icons">
+                <i class="fab fa-google"></i>
+                <i class="fab fa-facebook-f"></i>
+            </ul>
+        </nav>
+    </section>
+    <section id="main_center" class="main_page">
+
+        <!-- yutube player -->
+        <h3 id="youtube_title">반려견에 대한 정보 비디오 (Youtube - 강형욱의 보듬TV - Dog Trainer Kang)</h3>
+        <h4 id="youtube_exist">[영상 닫기]</h4>
+        <section class="player">
+            <iframe id="player_status" width="1080" height="500" src="https://www.youtube.com/embed/mYm7vOHGT-Q"
+                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+                    encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>
+
+        <!-- 정보 테이블 콘테이너 -->
+        <div class="info">
+            <h3 class="info_h3" id="table1">반려견이 먹으면 안되는 음식물</h3>
+            <table class="food" id="food_table" style="display: none">
+                <thead>
+                    <tr>
+                        <th>금지 식품</th>
+                        <th id="food_th2">섭취시 발생하는 일</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>마늘 양파 부추</th>
+                        <td>
+                            이들 향신 채소에 들어있는 알릴프로필 디설파이드 성분은 산소를 운반하는 적혈구의 헤모글로빈을 파괴해 반려동물을 큰 위험에 빠뜨릴 수 있다.
+                            용혈성 빈혈, 호흡 곤란 등을 일으키고 심할 경우에는 장기를 망가뜨려 사망에 이르게 할 수도 있다. 간혹 면역력 향상, 구충 작용과 같은 이유로
+                            익힌 마늘을 주는 보호자들도 있으나, 익힌다 하더라도 독성이 완전히 제거되지 않으므로 고민하지 말고 아예 주지 않는 것이 낫다.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>초콜릿</th>
+                        <td>
+                            개·고양이에게 주면 안 되는 대표적인 음식이 바로 초콜릿이다. 초콜릿에 들어 있는 카페인, 테오브로민(theobromine)성분은
+                            개와 고양이에게 심각한 중독 증상을 일으킨다. 먹는 즉시 심박수가 증가하고, 혈압이 변화하며, 전해질 불균형을 가져와 심장 기능에
+                            문제를 일으킬 수 있다. 구토나 설사 등을 하기도 하며 심할 경우엔 경련과 혼수상태에 빠질 수도 있다.
+                            특히 카페인과 테오브로민의 농도가 높은 다크 초콜릿은 더욱 조심해야 한다. 개보다 고양이가 더 위험하므로
+                            고양이가 초콜릿을 먹었다는 사실을 알게 되면 즉시 병원에 데려가도록 한다. 카페인이 들어있는 커피와 차 종류도
+                            주의한다.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>닭뼈</th>
+                        <td>
+                            동물병원들에 따르면 보호자가 무심코 던져준 닭고기를 먹다가 목에 걸리거나 식도·위 등의 장기가 손상되어
+                            내원하는 경우가 많다고. 돼지 등뼈도 개에게 자주 주는 식품 중 하나인데, 개가 뼈를 많이 먹으면 변비가 생길 수 있다.
+                            또한 돼지 등뼈는 치아의 애나멜층보다 단단한데, 돼지 등뼈가 개 치아의 애나멜층을 파괴해 치아가 손상될 수 있다.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>포도 건포도</th>
+                        <td>
+                            건포도를 포함해 포도 종류는 반려동물에게 급성 신부전을 일으킬 수 있다. 중독을 일으키는 포도의 양은 개체에 따라 다른데,
+                            덩치의 크고 작음과 포도의 양이 정비례 하는 것은 아니다. 정확하게 포도의 어떤 성분이 개·고양이의 신장에 치명적인 해를 끼치는지는
+                            아직 밝혀지지 않았다.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 class="info_h3" id="table2">반려견 관련 질병</h3>
+            <table class="disease" id="disease_table" style="display: none">
+                <thead>
+                    <tr>
+                        <th>질병 종류</th>
+                        <th id="disease_th2">증상</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>염증 (귀)</th>
+                        <td>
+                            귀 염증은 코커스패니얼이나 블러드하운드처럼 처지고 긴 귀를 지닌 견종에서 가장 흔히 발생한다.
+                            물론 귀에 물이 들어갔거나 습기가 찼을 때는 견종에 상관없이 염증이 생길 수 있다.
+                            반려견이 귀를 많이 긁고 머리를 옆으로 움직인다거나, 반려견 가까이 갔을 때 귀에서 악취가 나고 노란 액체가 분비된다면
+                            귀 염증이 있을 가능성이 크다.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>옴</th>
+                        <td>
+                            피부병의 일종으로 고양이나 사람에게서까지 나타날 수 있는 질병이다.
+                            옴은 진피를 뚫고 들어가 피부를 감염시키는 아주 작은 크기의 개선충이라는 이름의 기생충에 의해 발병한다.
+                            개에게 흔히 발생하는 옴에는 두 가지 종류가 있는데 다음과 같다. 옴진드기와 모낭충이다. 옴진드기의 경우는 감염된
+                            다른 동물과의 접촉을 통해 전염된다. 반면 모낭충의 경우는 면역력이 떨어졌거나 유전적인 문제로 인해 발병한다.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>내부 기생충</th>
+                        <td>
+                            ‘회충’의 종류 중 개에게 가장 생기기 쉬운 종류는 바로 조충이다.
+                            평평한 모양새를 지닌 조충은 개의 내장 기관에 기생하며 소화된 음식을 먹으며 증식한다.
+                            감염된 개의 배설물이나 잘못 조리된 음식 및 날것을 먹었을 경우 전염된다.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>관절염</th>
+                        <td>
+                            늙은 개나 저먼 셰퍼드, 도베르만처럼 특정 견종에서 흔히 보이는 질병이다.
+                            관절염은 관절의 퇴화나 염증을 뜻하며, 주로 넓적다리관절이나 발꿈치에서 발병한다.
+                            관절염에 걸릴 위험은 비만이거나 운동이 부족한 개의 경우 더 높아진다.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 class="info_h3" id="table3">반려견 예방접종 순서 및 필수 종류</h3>
+            <table class="vaccine" id="vaccine_table" style="display: none">
+                <thead>
+                    <tr>
+                        <th>백신 종류</th>
+                        <th id="vaccine_th2">접종 시기와 접종 이유</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>광견병</th>
+                        <td>
+                            <h4 class="disease_name">광견병: 12주 차, 1년 차에 각 1번씩 총 2회</h4>
+                            광견병 백신(Rabies vaccine)은 광견병을 예방하기 위한 백신이다 광견병은 일단 증상을 보이면 거의 100%의 확률로
+                            사망하므로 증상이 나타나기 전에 예방하여야 한다.
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>DHPPL 종합 백신</th>
+                        <td>
+                            <h4 class="disease_name">종합백신: 6~14주 차에 2주 간격으로 각 1번씩 총 5회</h4>
+                            (홍역 / 전염성 간염 / 파보 바이러스 장염 / 파라인플루엔자 / 랩토스파이로시스)에 대한 백신이다.
+                            DHPPL은 치사율이 굉장히 높고 특히 어린강아지들이 걸렸을경우 매우 위험하므로
+                            어린 강아지가 토하고 혈변을하고 컨디션이 저조해지는경우 의심해봐한다. 종합백신으로 예방이 가능하니 꼭 예방해야 한다.
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>켄넬 코프</th>
+                        <td>
+                            <h4 class="disease_name">켄넬코프: 10, 12주 차에 각 1번씩 총 2회</h4>
+                            강아지들이 많은 공간에서 공기를 통해 감염된다. 기침을 주 증상으로 하고 심하면 폐렴으로까지 이어진다.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 웹사이트 정보 -->
+    <footer>
+        <div class="information">
+            <ul id="top_information">
+                <li>Who's Pet</li>
+                <li>이용약관</li>
+                <li>개인정보처리방침</li>
+                <li>고객센터</li>
+                <li>메인</li>
+            </ul>
+            <ul>
+                <li>Tel 000-0000-0000</li>
+                <li>E-mail</li>
+                <li>Copyright ⓒ 2021</li>
+                <li>www.whospet.com All right reserved.</li>
+            </ul>
+        </div>
+    </footer>
+    </section>
+</body>
+
+</html>

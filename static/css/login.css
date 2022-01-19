@@ -1,0 +1,14 @@
+form {
+    position: relative;
+    left: 920px;
+    bottom: 250px;
+    width: 280px;
+}
+
+#log_out,
+#log_in,
+#sign_up {
+    position: relative;
+    left: 920px;
+    bottom: 260px;
+}

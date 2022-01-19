@@ -1,0 +1,83 @@
+{% load static %}
+
+{% load static %}
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 리스트</title>
+    <link rel="stylesheet" href="{% static 'css/board_detail.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- 상단 바 -->
+    <section class="nav_top">
+        <nav class="navbar">
+            <div class="navbar_logo">
+                <i class="fas fa-paw"></i>
+                <a href="/">Who's Pet</a>
+            </div>
+
+            <ul class="navbar_menu">
+                <li><a href="">마이페이지</a></li>
+                <li><a href="{% url 'info' %}">정보</a></li>
+                <li><a href="{% url 'facility' %}">반려견시설</a></li>
+                <li><a href="{% url 'gps' %}">위치추적</a></li>
+                <li><a href="{% url 'board:board_list' %}">커뮤니티</a></li>
+            </ul>
+
+            <ul class="navbar_icons">
+                <i class="fab fa-google"></i>
+                <i class="fab fa-facebook-f"></i>
+            </ul>
+        </nav>
+    </section>
+    <section id="main_center" class="main_page">
+        <div class="container">
+            <div class="community_detail">
+                {% block contents %}
+                <div class="edit_box">
+                    <div id="edit">게시글 상세 내용</div>
+                    <a href=""><button>수정</button></a>
+                    <a href=""><button>삭제</button></a>
+                </div>
+                <!-- 필요한 객체들 리턴 -->
+                <div>
+                    게시판 종류 : {{ board.board_name }}
+                </div>
+                <div>
+                    작성자 : {{ board.writer }} | 작성일 : {{ board.write_dttm }} | 조회수 : {{ board.hits }}
+                </div>
+                <div>
+                    제목 : {{ board.title }}
+                </div>
+                <div id="board_contents">
+                    {{ board.contents|safe }}
+                </div>
+                {% endblock contents %}
+            </div>
+        </div>
+    </section>
+    <!-- 웹사이트 정보 -->
+    <footer>
+        <div class="information">
+            <ul id="top_information">
+                <li>Who's Pet</li>
+                <li>이용약관</li>
+                <li>개인정보처리방침</li>
+                <li>고객센터</li>
+                <li>메인</li>
+            </ul>
+            <ul>
+                <li>Tel 000-0000-0000</li>
+                <li>E-mail</li>
+                <li>Copyright ⓒ 2021</li>
+                <li>www.whospet.com All right reserved.</li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+</html>

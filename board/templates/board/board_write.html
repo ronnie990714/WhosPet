@@ -1,0 +1,77 @@
+{% load static %}
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 작성</title>
+    <link rel="stylesheet" href="{% static 'css/board_write.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- 상단 바 -->
+    <section class="nav_top">
+        <nav class="navbar">
+            <div class="navbar_logo">
+                <i class="fas fa-paw"></i>
+                <a href="/">Who's Pet</a>
+            </div>
+
+            <ul class="navbar_menu">
+                <li><a href="">마이페이지</a></li>
+                <li><a href="{% url 'info' %}">정보</a></li>
+                <li><a href="{% url 'facility' %}">반려견시설</a></li>
+                <li><a href="{% url 'gps' %}">위치추적</a></li>
+                <li><a href="{% url 'board:board_list' %}">커뮤니티</a></li>
+            </ul>
+
+            <ul class="navbar_icons">
+                <i class="fab fa-google"></i>
+                <i class="fab fa-facebook-f"></i>
+            </ul>
+        </nav>
+    </section>
+    <section id="main_center" class="main_page">
+        <div class="container">
+            {% block contents %}
+            <h3> 게시판 글쓰기 </h3>
+            <form action="" method='POST'>
+                {% csrf_token %}
+
+                {% for form in forms %}
+                <div class="write_board">
+                    <label for="{{ form.id_for_label }}">{{ form.label }}</label>
+                    {{ form }}
+                </div>
+                {% endfor %}
+
+                {% if error %}
+                {{ error }}
+                {% endif %}
+                <button type="submit">작성하기</button>
+            </form>
+            {% endblock contents %}
+        </div>
+    </section>
+    <!-- 웹사이트 정보 -->
+    <footer>
+        <div class="information">
+            <ul id="top_information">
+                <li>Who's Pet</li>
+                <li>이용약관</li>
+                <li>개인정보처리방침</li>
+                <li>고객센터</li>
+                <li>메인</li>
+            </ul>
+            <ul>
+                <li>Tel 000-0000-0000</li>
+                <li>E-mail</li>
+                <li>Copyright ⓒ 2021</li>
+                <li>www.whospet.com All right reserved.</li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+{% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
+
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>메인 페이지</title>
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        <link rel="stylesheet" href="{% static 'css/login.css' %}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+            integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    </head>
+    <body>
+        <!-- 상단 바 -->
+        <section class="nav_top">
+            <nav class="navbar">
+                <div class="navbar_logo">
+                    <i class="fas fa-paw"></i>
+                    <a href="/">Who's Pet</a>
+                </div>
+        
+                <ul class="navbar_menu">
+                    <li><a href="">마이페이지</a></li>
+                    <li><a href="{% url 'info' %}">정보</a></li>
+                    <li><a href="{% url 'facility' %}">반려견시설</a></li>
+                    <li><a href="{% url 'gps' %}">위치추적</a></li>
+                    <li><a href="{% url 'board:board_list' %}">커뮤니티</a></li>
+                </ul>
+        
+                <ul class="navbar_icons">
+                    <a href="{% provider_login_url 'google' %}"><i class="fab fa-google"></i></a>
+                    <i class="fab fa-facebook-f"></i>
+                </ul>
+            </nav>
+        </section>
+        <section id="main_center" class="main_page">
+            <! -- 메인 -->
+            <section class="main">
+                <div class="image">
+                    <img src="{% static 'image/main_image.jpg' %}">
+                </div>
+            </section>
+                <span id="log_inout">
+                    {% if login_session %}  <!-- 로그인 했을 때 -->
+                    <a href="{% url 'board:board_list' %}" style="position: relative; left: 990px; bottom: 236px;"><button>게시판</button></a>
+                    <a href="{% url 'user:logout' %}" id="log_out"><button>로그아웃</button></a>
+                    {% elif user.is_authenticated %} <!--소셜 로그인 했을 떄-->
+                    <a>{{user.username}}</a>
+                    <a href="{% url 'board:board_list' %}" style="position: relative; left: 990px; bottom: 236px;"><button>게시판</button></a>
+                    <a href="{% url 'user:logout' %}" id="log_out"><button>로그아웃</button></a>
+                    {% else %}  <!-- 로그인 안했을 때 -->
+                    <a href="{% url 'user:login' %}" id="log_in"><button>로그인</button></a>
+                    <a href="{% url 'user:register' %}" id="sign_up"><button>회원가입</button></a>
+                    {% endif %}
+                    {% block contents %}
+                    {% endblock contents %}
+                </span>
+            <!-- 서브 -->
+            <section class="sub">
+                <div class="sub_menu">
+                    <div class="crud_board">
+                        <h4><a href="{% url 'board:board_list' %}">커뮤니티 글</a></h4>
+                        <ul>
+                            <li>안녕</li>
+                            <li>안녕</li>
+                            <li>안녕</li>
+                            <li>안녕</li>
+                            <li>안녕</li>
+                        </ul>
+                    </div>
+                    <ul id="menu_shortcut">
+                        <div class="top_shortcut">
+                            <li id="menu_1"><a href="{% url 'info' %}"><h4>반려견 관련 정보</h4><img src="{% static 'image/dog.png' %}"></a></li>
+                            <li id="menu_2"><a href="{% url 'facility' %}"><h4>반려견 동행 가능 시설</h4><img src="{% static 'image/facility.png' %}"></a></li>
+                            <li id="menu_3"><a href="{% url 'gps' %}"><h4>반려견 위치추적</h4><img src="{% static 'image/gps.png' %}"></a></li>
+                            <li id="menu_4"><a href="{% url 'board:board_list' %}"><h4>커뮤니티</h4><img src="{% static 'image/community.png' %}"></a></li>
+                        </div>
+                    </ul>
+                </div>
+            </section>
+        </section>
+            <!-- 웹사이트 정보 -->
+        <footer>
+            <div class="information">
+                <ul id="top_information">
+                    <li>Who's Pet</li>
+                    <li>이용약관</li>
+                    <li>개인정보처리방침</li>
+                    <li>고객센터</li>
+                    <li>메인</li>
+                </ul>
+                <ul>
+                    <li>Tel 000-0000-0000</li>
+                    <li>E-mail</li>
+                    <li>Copyright ⓒ 2021</li>
+                    <li>www.whospet.com All right reserved.</li>
+                </ul>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,161 @@
+body {
+    margin: 0;
+}
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* nav */
+.navbar {
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    background-color: beige;
+    align-items: center;
+}
+
+.navbar_menu {
+    display: flex;
+    margin-right: 70px;
+    font-size: 20px;
+}
+
+.navbar_menu li {
+    padding-left: 12px;
+}
+
+#main_center {
+    padding: 8px 10px;
+    width: 1100px;
+}
+
+.main_page {
+    margin: 0 auto;
+    width: 1080px;
+}
+
+.sign_top {
+    font-size: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.sign_kind {
+    padding-bottom: 3vw;
+}
+
+.sign_kind #common,
+.sign_kind #vet,
+.sign_kind #company {
+    cursor: pointer;
+}
+
+.sign_kind button {
+    font-size: 20px;
+    margin-left: 10px;
+    background-color: white;
+}
+
+.sign_kind #common {
+    border: 2px solid red;
+}
+
+form {
+    width: 400px;
+    margin-left: 330px;
+}
+
+form div {
+    display: flex;
+    margin-bottom: 2px;
+}
+
+form label {
+    padding: 0;
+    text-align: center;
+    font-size: 15px;
+    width: 110px;
+    border: 2px solid black;
+    background-color: beige;
+    padding-top: 15px;
+    margin-right: 5px;
+}
+
+form input {
+    border: 2px solid black;
+    outline: none;
+    padding-right: 2px;
+    height: 50px;
+    width: 280px;
+    font-size: 15px;
+}
+
+form button {
+    margin-top: 20px;
+    width: 400px;
+    font-size: 20px;
+    background-color: beige;
+    cursor: pointer;
+}
+
+
+
+/* .sign_up table tr,
+.sign_up table td {
+    padding: 0;
+    text-align: center;
+    font-size: 15px;
+} */
+
+/* .sign_up table td:first-child{
+    border: 2px solid black;
+} */
+
+/* .sign_up table td input {
+    border: 2px solid black;
+    outline: none;
+
+    padding-right: 23%;
+    height: 50px;
+    width: 300px;
+    font-size: 15px;
+} */
+
+/* .sign_box {
+    background-color: beige;
+} */
+
+/* .sign_up .sign_up_btn {
+    display: flex;
+    justify-content: center;
+} */
+
+/* .sign_up .sign_up_btn #signUpBtn {
+    margin-top: 30px;
+    width: 100px;
+    font-size: 20px;
+    background-color: beige;
+    cursor: pointer;
+} */
+
+
+
+/* footer */
+.information {
+    background-color: beige;
+}
+
+.information #top_information {
+    display: flex;
+}
+
+.information #top_information li {
+    padding-left: 10px;
+    padding-right: 20px;
+    border-right: 1px solid black;
+}

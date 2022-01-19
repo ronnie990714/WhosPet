@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+}
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.navbar {
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    background-color: beige;
+    align-items: center;
+}
+
+.navbar_menu {
+    display: flex;
+    margin-right: 70px;
+    font-size: 20px;
+}
+
+.navbar_menu li {
+    padding-left: 12px;
+}
+
+#main_center {
+    padding: 8px 10px;
+    width: 1100px;
+}
+
+.main_page {
+    margin: 0 auto;
+    width: 1080px;
+}
+
+.main {
+    display: flex;
+    width: 80%;
+
+}
+
+.main img {
+    width: 900px;
+    height: 300px;
+    border-radius:10%;
+}
+
+.sub .crud_board {
+    border-style: solid;
+    width: 330px;
+    text-align: center;
+}
+
+.sub .crud_board ul {
+    padding-left: 0;
+    justify-content:space-between;
+}
+
+.sub_menu {
+    display: flex;
+    width: 1100px;
+    height: 300px;
+    /*border-style: solid;*/
+}
+
+.sub_menu #menu_shortcut {
+    display: flex;
+    margin: 0;
+    width: 1000px;
+    flex-wrap: wrap;
+    padding-left: 0;
+}
+
+.sub_menu #menu_shortcut .top_shortcut {
+    display: flex;
+}
+
+.sub_menu #menu_shortcut .top_shortcut li {
+    display: flex;
+    width: 200px;
+    text-align: center;
+}
+
+.sub_menu #menu_shortcut .top_shortcut li {
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.sub_menu #menu_shortcut .top_shortcut li img{
+    padding-top: 45px;
+    width: 150px;
+    height: 120px;
+}
+
+
+
+/* 정보 */
+.information {
+    background-color: beige;
+}
+
+.information #top_information {
+    display: flex;
+
+}
+
+.information #top_information li {
+    padding-left: 10px;
+    padding-right: 20px;
+    border-right: 1px solid black;
+}

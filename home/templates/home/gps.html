@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>GPS 맵</title>
+    <link rel="stylesheet" href="{% static 'css/geolocation.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <script src="{% static 'javascript/geolocation.js' %}"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnHdvAwGLa58Fh5OIub6q8YMXM-PCM-j8"></script>
+</head>
+
+<body>
+    <!-- 상단 바 -->
+    <section class="nav_top">
+        <nav class="navbar">
+            <div class="navbar_logo">
+                <i class="fas fa-paw"></i>
+                <a href="/">Who's Pet</a>
+            </div>
+
+            <ul class="navbar_menu">
+                <li><a href="">마이페이지</a></li>
+                <li><a href="{% url 'info' %}">정보</a></li>
+                <li><a href="{% url 'facility' %}">반려견시설</a></li>
+                <li><a href="{% url 'gps' %}">위치추적</a></li>
+                <li><a href="{% url 'board:board_list' %}">커뮤니티</a></li>
+            </ul>
+
+            <ul class="navbar_icons">
+                <i class="fab fa-google"></i>
+                <i class="fab fa-facebook-f"></i>
+            </ul>
+        </nav>
+    </section>
+    <section id="main_center" class="main_page">
+
+        <!-- gps 맵 -->
+        <section class="container">
+            <div class="googleMap">
+                <h3>지도</h3>
+                <form>
+                    <input type="button" id="watch" value="Animal Tracking">
+                    <input type="button" id="stopWatch" value="Stop Tracking">
+                </form>
+                <div id="yourLocation">동물의 위치</div>
+                <div id="map">
+                </div>
+            </div>
+            <div class="locationLog" id="logParent">
+                <h3>위치 로그</h3>
+                <ul>
+                </ul>
+            </div>
+
+        </section>
+
+        <!-- 웹사이트 정보 -->
+        <footer>
+            <div class="information">
+                <ul id="top_information">
+                    <li>Who's Pet</li>
+                    <li>이용약관</li>
+                    <li>개인정보처리방침</li>
+                    <li>고객센터</li>
+                    <li>메인</li>
+                </ul>
+                <ul>
+                    <li>Tel 000-0000-0000</li>
+                    <li>E-mail</li>
+                    <li>Copyright ⓒ 2021</li>
+                    <li>www.whospet.com All right reserved.</li>
+                </ul>
+            </div>
+        </footer>
+    </section>
+</body>
+
+</html>

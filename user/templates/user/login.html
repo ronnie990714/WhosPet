@@ -1,0 +1,18 @@
+{% extends 'home/index.html' %}
+{% load static %}
+{% block contents %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<div class="login_contents">
+    <form action="" method="POST">
+        {% csrf_token %}
+    
+        {% for form in forms %}
+        <div>
+            <label for="{{ form.id_for_label }}">{{ form.label }}</label>
+            {{ form }}
+        </div>
+        {% endfor %}
+        <button type="submit" name="register-submit" value="register">로그인하기</button>
+    </form>
+    {% endblock contents %}
+</div>
